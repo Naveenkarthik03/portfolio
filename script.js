@@ -17,3 +17,27 @@ themeToggle.addEventListener("click", () => {
     }
 
 });
+
+const hiddenElements = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+});
+
+hiddenElements.forEach((element) => {
+
+    element.classList.add("hidden");
+
+    observer.observe(element);
+
+});

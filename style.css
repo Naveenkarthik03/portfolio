@@ -56,25 +56,12 @@ nav a:hover{
 }
 
 #theme-toggle{
-    width:45px;
-    height:45px;
     margin-top:0;
-    padding:0;
+    padding:10px 14px;
     border:none;
     border-radius:50%;
-    background:#2563eb;
-    color:white;
-    font-size:20px;
+    font-size:18px;
     cursor:pointer;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transition:0.3s;
-}
-
-#theme-toggle:hover{
-    background:#1d4ed8;
-    transform:none;
 }
 
 .hero{
@@ -228,12 +215,9 @@ footer{
     color:white;
 }
 
-.dark-mode nav{
-    background:#020617;
-}
-
-.dark-mode footer{
-    background:#020617;
+.dark-mode .project-card{
+    background:#1e293b;
+    color:white;
 }
 
 .dark-mode .tagline{
@@ -242,12 +226,6 @@ footer{
 
 .dark-mode #about p{
     color:#e2e8f0;
-}
-
-.dark-mode .project-card{
-    background:#1e293b;
-    color:white;
-    box-shadow:none;
 }
 
 @media(max-width:768px){
@@ -300,4 +278,89 @@ footer{
     .project-card{
         width:100%;
     }
+}
+.hidden{
+
+    opacity:0;
+
+    filter:blur(5px);
+
+    transform:translateY(60px);
+
+    transition:all 1s;
+
+}
+
+.show{
+
+    opacity:1;
+
+    filter:blur(0);
+
+    transform:translateY(0);
+
+}
+
+.project-card{
+
+    transition:0.4s;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.skill-card{
+
+    transition:0.4s;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.profile-links a{
+
+    transition:0.4s;
+
+}
+
+.profile-links a:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.hero button{
+
+    animation:float 2s infinite ease-in-out;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
 }
