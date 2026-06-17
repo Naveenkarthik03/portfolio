@@ -1,109 +1,116 @@
 const themeToggle = document.getElementById("theme-toggle");
 
-themeToggle.addEventListener("click", () => {
+themeToggle.addEventListener("click",()=>{
 
-    document.body.classList.toggle("dark-mode");
+document.body.classList.toggle("dark-mode");
 
-    if(document.body.classList.contains("dark-mode")){
+if(document.body.classList.contains("dark-mode")){
 
-        themeToggle.textContent = "☀️";
+themeToggle.textContent="☀️";
 
-    }
+}
 
-    else{
+else{
 
-        themeToggle.textContent = "🌙";
+themeToggle.textContent="🌙";
 
-    }
-
-});
-
-const hiddenElements = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver((entries) => {
-
-    entries.forEach((entry) => {
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
+}
 
 });
 
-hiddenElements.forEach((element) => {
 
-    element.classList.add("hidden");
+const hiddenElements=document.querySelectorAll("section");
 
-    observer.observe(element);
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach((entry)=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
 
 });
 
-const typingText = document.getElementById("typing-text");
+});
 
-const words = [
 
-    "Software Engineer",
+hiddenElements.forEach((element)=>{
 
-    "Full Stack Developer",
+element.classList.add("hidden");
 
-    "Python Developer"
+observer.observe(element);
+
+});
+
+
+
+const typingText=document.getElementById("typing-text");
+
+
+const words=[
+
+"Software Engineer",
+
+"Full Stack Developer",
+
+"Python Developer"
 
 ];
 
-let wordIndex = 0;
 
-let charIndex = 0;
+let wordIndex=0;
 
-let isDeleting = false;
+let charIndex=0;
+
+let isDeleting=false;
+
 
 function typeEffect(){
 
-    if(!typingText){
+const currentWord=words[wordIndex];
 
-        return;
+if(isDeleting){
 
-    }
-
-    const currentWord = words[wordIndex];
-
-    if(isDeleting){
-
-        charIndex--;
-
-    }
-
-    else{
-
-        charIndex++;
-
-    }
-
-    typingText.textContent = currentWord.substring(0,charIndex);
-
-    let speed = isDeleting ? 60 : 120;
-
-    if(!isDeleting && charIndex === currentWord.length){
-
-        speed = 1500;
-
-        isDeleting = true;
-
-    }
-
-    else if(isDeleting && charIndex === 0){
-
-        isDeleting = false;
-
-        wordIndex = (wordIndex + 1) % words.length;
-
-    }
-
-    setTimeout(typeEffect,speed);
+charIndex--;
 
 }
+
+else{
+
+charIndex++;
+
+}
+
+
+typingText.textContent=currentWord.substring(0,charIndex);
+
+
+let speed=isDeleting ? 60 : 120;
+
+
+if(!isDeleting && charIndex===currentWord.length){
+
+speed=1500;
+
+isDeleting=true;
+
+}
+
+else if(isDeleting && charIndex===0){
+
+isDeleting=false;
+
+wordIndex=(wordIndex+1)%words.length;
+
+}
+
+
+setTimeout(typeEffect,speed);
+
+}
+
 
 typeEffect();

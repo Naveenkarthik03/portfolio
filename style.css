@@ -1,69 +1,119 @@
 .nk-logo{
 
-    width:120px;
+width:120px;
 
-    height:120px;
+height:120px;
 
-    border-radius:50%;
+border-radius:50%;
 
-    background:#2563eb;
+background:#2563eb;
 
-    color:white;
+color:white;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    font-size:48px;
+font-size:48px;
 
-    font-weight:800;
+font-weight:800;
 
-    letter-spacing:3px;
+letter-spacing:4px;
 
-    margin-bottom:30px;
+margin-bottom:30px;
 
-    box-shadow:0 10px 30px rgba(37,99,235,0.3);
+box-shadow:0 10px 30px rgba(37,99,235,0.3);
 
-    animation:floatLogo 3s infinite ease-in-out;
+animation:floatLogo 3s infinite ease-in-out;
 
 }
 
 #typing-text{
 
-    font-size:24px;
+font-size:24px;
 
-    font-weight:600;
+font-weight:600;
 
-    height:40px;
+height:40px;
 
 }
 
 @keyframes floatLogo{
 
-    0%{
+0%{
 
-        transform:translateY(0);
+transform:translateY(0);
 
-    }
+}
 
-    50%{
+50%{
 
-        transform:translateY(-8px);
+transform:translateY(-8px);
 
-    }
+}
 
-    100%{
+100%{
 
-        transform:translateY(0);
+transform:translateY(0);
 
-    }
+}
+
+}
+
+.hidden{
+
+opacity:0;
+
+filter:blur(5px);
+
+transform:translateY(60px);
+
+transition:all 1s;
+
+}
+
+.show{
+
+opacity:1;
+
+filter:blur(0);
+
+transform:translateY(0);
+
+}
+
+.dark-mode{
+
+background:#0f172a;
+
+color:white;
+
+}
+
+.dark-mode .project-card{
+
+background:#1e293b;
+
+color:white;
+
+}
+
+.dark-mode .tagline{
+
+color:#cbd5e1;
+
+}
+
+.dark-mode #about p{
+
+color:#e2e8f0;
 
 }
 
 .dark-mode .nk-logo{
 
-    background:#3b82f6;
+background:#3b82f6;
 
 }
