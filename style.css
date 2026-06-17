@@ -13,6 +13,7 @@ body{
     line-height:1.7;
     color:#1f2937;
     background:#ffffff;
+    transition:0.3s;
 }
 
 nav{
@@ -52,6 +53,28 @@ nav a{
 
 nav a:hover{
     color:#60a5fa;
+}
+
+#theme-toggle{
+    width:45px;
+    height:45px;
+    margin-top:0;
+    padding:0;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:0.3s;
+}
+
+#theme-toggle:hover{
+    background:#1d4ed8;
+    transform:none;
 }
 
 .hero{
@@ -198,6 +221,33 @@ footer{
     text-align:center;
     background:#111827;
     color:white;
+}
+
+.dark-mode{
+    background:#0f172a;
+    color:white;
+}
+
+.dark-mode nav{
+    background:#020617;
+}
+
+.dark-mode footer{
+    background:#020617;
+}
+
+.dark-mode .tagline{
+    color:#cbd5e1;
+}
+
+.dark-mode #about p{
+    color:#e2e8f0;
+}
+
+.dark-mode .project-card{
+    background:#1e293b;
+    color:white;
+    box-shadow:none;
 }
 
 @media(max-width:768px){
