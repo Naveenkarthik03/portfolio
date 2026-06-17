@@ -44,62 +44,66 @@ hiddenElements.forEach((element) => {
 
 const typingText = document.getElementById("typing-text");
 
-if(typingText){
+const words = [
 
-    const words = [
+    "Software Engineer",
 
-        "Software Engineer",
+    "Full Stack Developer",
 
-        "Full Stack Developer",
+    "Python Developer"
 
-        "Python Developer"
+];
 
-    ];
+let wordIndex = 0;
 
-    let wordIndex = 0;
+let charIndex = 0;
 
-    let charIndex = 0;
+let isDeleting = false;
 
-    let isDeleting = false;
+function typeEffect(){
 
-    function typeEffect(){
+    if(!typingText){
 
-        const currentWord = words[wordIndex];
-
-        if(isDeleting){
-
-            typingText.textContent = currentWord.substring(0,charIndex--);
-
-        }
-
-        else{
-
-            typingText.textContent = currentWord.substring(0,charIndex++);
-
-        }
-
-        let speed = isDeleting ? 60 : 120;
-
-        if(!isDeleting && charIndex === currentWord.length + 1){
-
-            speed = 1500;
-
-            isDeleting = true;
-
-        }
-
-        if(isDeleting && charIndex === 0){
-
-            isDeleting = false;
-
-            wordIndex = (wordIndex + 1) % words.length;
-
-        }
-
-        setTimeout(typeEffect,speed);
+        return;
 
     }
 
-    typeEffect();
+    const currentWord = words[wordIndex];
+
+    if(isDeleting){
+
+        charIndex--;
+
+    }
+
+    else{
+
+        charIndex++;
+
+    }
+
+    typingText.textContent = currentWord.substring(0,charIndex);
+
+    let speed = isDeleting ? 60 : 120;
+
+    if(!isDeleting && charIndex === currentWord.length){
+
+        speed = 1500;
+
+        isDeleting = true;
+
+    }
+
+    else if(isDeleting && charIndex === 0){
+
+        isDeleting = false;
+
+        wordIndex = (wordIndex + 1) % words.length;
+
+    }
+
+    setTimeout(typeEffect,speed);
 
 }
+
+typeEffect();
